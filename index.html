@@ -12,10 +12,10 @@
       --card: #ffffff;
       --text: #1f2933;
       --muted: #5f6b7a;
-      --accent: #0f766e;
-      --accent-dark: #115e59;
+      --accent: #25435f;
+      --accent-dark: #1e3a52;
       --line: #e2e8f0;
-      --tag: #e6fffb;
+      --tag: #edf2f6;
       --shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
       --max-width: 1120px;
     }
@@ -40,10 +40,23 @@
     a:hover { text-decoration: underline; }
 
     .site-header {
-      background: linear-gradient(135deg, #102a43 0%, #0f766e 100%);
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #25435f 0%, #25435f 58%, #718595 100%);
       color: #fff;
       padding: 4rem 1.5rem 3rem;
     }
+
+    .site-header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 78% 18%, rgba(255,255,255,0.18), transparent 28%),
+                  linear-gradient(90deg, rgba(255,255,255,0.00), rgba(255,255,255,0.10));
+      pointer-events: none;
+    }
+
+    .header-inner { position: relative; z-index: 1; }
 
     .header-inner {
       max-width: var(--max-width);
@@ -180,12 +193,12 @@
       font-size: clamp(1.6rem, 3vw, 2.1rem);
       line-height: 1.2;
       margin: 0 0 1rem;
-      color: #102a43;
+      color: #25435f;
     }
 
     h3 {
       margin: 1.2rem 0 0.4rem;
-      color: #243b53;
+      color: #2f4d66;
       font-size: 1.12rem;
     }
 
@@ -274,7 +287,7 @@
     .tag {
       background: var(--tag);
       color: var(--accent-dark);
-      border: 1px solid #b2f5ea;
+      border: 1px solid #c8d4dd;
       padding: 0.35rem 0.65rem;
       border-radius: 999px;
       font-weight: 650;
@@ -330,7 +343,7 @@
     summary {
       cursor: pointer;
       font-weight: 800;
-      color: #102a43;
+      color: #25435f;
     }
 
     .footer {
@@ -421,7 +434,7 @@
       </div>
       <div class="contact-item">
         <strong>Work address</strong>
-        Chalmers University of Technology · Department of Mechanical Engineering · SE-412 96 Gothenburg, Sweden
+        Chalmers University of Technology · Department of Mechanical Engineering<br>SE-412 96 Gothenburg, Sweden
       </div>
     </div>
   </div>
@@ -515,6 +528,11 @@
       <h2>Research grants and projects</h2>
       <p class="lead">I have led and contributed to research projects in roles including project leader, grant holder, grant proposal author, operational manager, main investigator, researcher, educational developer, and PhD supervisor.</p>
       <div class="two-col">
+        <article class="project">
+          <h3>Agentic AI in Automotive Operations (ACTION), 2026</h3>
+          <p class="role">Project leader, grant holder</p>
+          <p>Partners: Chalmers, Volvo Cars. Drives real-world deployment of Agentic AI solutions in automotive operations and supply chains.</p>
+        </article>
         <article class="project">
           <h3>Maintenance of Battery Production at Industrial Scale (MATTER@SCALE), 2023–2026</h3>
           <p class="role">Project leader, grant holder</p>
@@ -610,7 +628,7 @@
             <li>Swedish Maintenance Fair, main stage, 2016, 2018, 2020, 2024, 2026.</li>
             <li>From battery cell to vehicle and beyond, Chalmers, 2023.</li>
             <li>Underhållsstrategi, 2023.</li>
-            <li>Sustainability Circle webinars and meetings, 2016–2023.</li>
+            <li>Sustainability Circle webinars and meetings, 2016–2026.</li>
             <li>Norwegian Maintenance Society Industry 4.0 conference, Oslo, 2018.</li>
           </ul>
         </div>
