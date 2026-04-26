@@ -8,95 +8,98 @@
   <title>Jon Bokrantz | Academic CV</title>
   <style>
     :root {
-      --bg: #ffffff;
-      --text: #222222;
-      --muted: #5f6368;
-      --accent: #0b5c77;
-      --accent-soft: #edf7fa;
-      --line: #dddddd;
-      --max-width: 980px;
+      --bg: #f6f7f9;
+      --card: #ffffff;
+      --text: #1f2933;
+      --muted: #5f6b7a;
+      --accent: #0f766e;
+      --accent-dark: #115e59;
+      --line: #e2e8f0;
+      --tag: #e6fffb;
+      --shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+      --max-width: 1120px;
     }
 
     * { box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.62;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
       color: var(--text);
       background: var(--bg);
-      font-size: 17px;
     }
 
-    a { color: var(--accent); text-decoration: none; }
+    a {
+      color: var(--accent-dark);
+      text-decoration: none;
+    }
+
     a:hover { text-decoration: underline; }
 
     .site-header {
-      border-bottom: 1px solid var(--line);
-      background: #fff;
-      padding: 2.4rem 1.5rem 1.6rem;
+      background: linear-gradient(135deg, #102a43 0%, #0f766e 100%);
+      color: #fff;
+      padding: 4rem 1.5rem 3rem;
     }
 
     .header-inner {
       max-width: var(--max-width);
       margin: 0 auto;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 280px;
-      gap: 2.5rem;
-      align-items: start;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 2rem;
+      align-items: end;
     }
 
     .eyebrow {
-      color: var(--muted);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       font-size: 0.78rem;
       font-weight: 700;
-      margin-bottom: 0.3rem;
+      opacity: 0.85;
+      margin-bottom: 0.75rem;
     }
 
     h1 {
-      font-size: clamp(2.6rem, 6vw, 4.1rem);
-      line-height: 1.02;
-      margin: 0 0 0.4rem;
-      font-weight: 500;
-      letter-spacing: -0.03em;
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
+      line-height: 1;
+      margin: 0 0 1rem;
     }
 
     .subtitle {
-      font-size: clamp(1.15rem, 2vw, 1.38rem);
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
       max-width: 760px;
       margin: 0;
-      color: #333;
+      opacity: 0.95;
     }
 
     .contact-card {
-      border-left: 3px solid var(--accent);
-      padding: 0.1rem 0 0.1rem 1rem;
-      background: #fff;
-      font-size: 0.96rem;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 1.25rem;
+      padding: 1.25rem;
+      backdrop-filter: blur(10px);
     }
 
     .contact-card h2 {
-      margin: 0 0 0.35rem;
-      color: #111;
+      color: #fff;
+      margin-top: 0;
       font-size: 1rem;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
     }
 
-    .contact-card p { margin: 0.35rem 0; }
+    .contact-card p { margin: 0.4rem 0; }
+    .contact-card a { color: #fff; }
 
     nav {
       position: sticky;
       top: 0;
       z-index: 10;
-      background: rgba(255,255,255,0.96);
+      background: rgba(255,255,255,0.95);
       border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
     }
 
     .nav-inner {
@@ -104,127 +107,248 @@
       margin: 0 auto;
       padding: 0.75rem 1.5rem;
       display: flex;
-      gap: 1.05rem;
+      gap: 1rem;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: flex-start;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      justify-content: center;
     }
 
-    .nav-inner a { font-size: 0.92rem; font-weight: 600; color: #333; }
+    .nav-inner a {
+      font-size: 0.92rem;
+      font-weight: 650;
+      color: var(--text);
+      padding: 0.3rem 0.5rem;
+      border-radius: 999px;
+    }
 
-    main { max-width: var(--max-width); margin: 0 auto; padding: 1.7rem 1.5rem 4rem; }
+    .nav-inner a:hover {
+      background: var(--tag);
+      color: var(--accent-dark);
+      text-decoration: none;
+    }
 
-    section { padding: 1.55rem 0; margin: 0; border-bottom: 1px solid var(--line); }
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 1.4rem;
+      padding: clamp(1.25rem, 3vw, 2rem);
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow);
+    }
 
     h2 {
-      font-size: clamp(1.6rem, 3vw, 2.05rem);
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
       line-height: 1.2;
-      margin: 0 0 0.75rem;
-      font-weight: 500;
-      letter-spacing: -0.015em;
-      color: #111;
+      margin: 0 0 1rem;
+      color: #102a43;
     }
 
     h3 {
-      margin: 1.1rem 0 0.35rem;
-      color: #111;
+      margin: 1.2rem 0 0.4rem;
+      color: #243b53;
       font-size: 1.12rem;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
-    .lead { font-size: 1.08rem; color: #333; max-width: 900px; }
-
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; margin: 1rem 0; }
-
-    .metric, .item, .project, .publication { border: 1px solid var(--line); padding: 0.9rem; background: #fff; }
-
-    .metric strong { display: block; font-size: 1.55rem; color: #111; line-height: 1.1; font-weight: 500; }
-    .metric span { color: var(--muted); font-size: 0.95rem; }
-
-    .timeline { display: grid; gap: 0.85rem; }
-    .timeline-item { padding-left: 1rem; border-left: 3px solid var(--line); }
-    .timeline-item .date {
-      color: var(--accent);
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 0.82rem;
-      letter-spacing: 0.04em;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    .lead {
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 880px;
     }
 
-    ul { padding-left: 1.2rem; margin: 0.35rem 0 0; }
-    li { margin: 0.22rem 0; }
-
-    .metric-link { display: block; color: var(--text); }
-    .metric-link:hover { background: var(--accent-soft); text-decoration: none; }
-
-    .live-note { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 0.8rem 1rem; margin: 1rem 0 1.2rem; color: #333; }
-
-    .tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1rem; }
-    .tag {
-      background: #f7f7f7;
-      color: #333;
-      border: 1px solid var(--line);
-      padding: 0.26rem 0.55rem;
-      border-radius: 999px;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      font-size: 0.82rem;
-      font-weight: 600;
-    }
-
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .project .role { color: var(--accent); font-weight: 700; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-    .muted { color: var(--muted); }
-
-    .publication-list { counter-reset: pubs; display: grid; gap: 0.65rem; }
-    .publication { counter-increment: pubs; position: relative; padding-left: 3rem; }
-    .publication::before {
-      content: counter(pubs);
-      position: absolute;
-      left: 0.85rem;
-      top: 0.85rem;
-      width: 1.45rem;
-      height: 1.45rem;
-      border: 1px solid var(--line);
-      color: var(--accent);
+    .grid {
       display: grid;
-      place-items: center;
-      font-weight: 700;
-      font-size: 0.78rem;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .metric, .item, .project, .publication {
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      padding: 1rem;
       background: #fff;
     }
 
-    details { border: 1px solid var(--line); padding: 0.9rem; background: #fff; margin-top: 1rem; }
-    summary { cursor: pointer; font-weight: 700; color: #111; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .metric strong {
+      display: block;
+      font-size: 1.8rem;
+      color: var(--accent-dark);
+      line-height: 1.1;
+    }
 
-    .footer { text-align: center; color: var(--muted); padding: 2rem 1rem 3rem; font-size: 0.92rem; }
+    .metric span { color: var(--muted); }
 
-    .button-row { display: flex; gap: 0.65rem; flex-wrap: wrap; margin-top: 1rem; }
+    .timeline {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .timeline-item {
+      padding-left: 1rem;
+      border-left: 4px solid var(--accent);
+    }
+
+    .timeline-item .date {
+      color: var(--accent-dark);
+      font-weight: 750;
+      text-transform: uppercase;
+      font-size: 0.86rem;
+      letter-spacing: 0.04em;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin: 0.4rem 0 0;
+    }
+
+    li { margin: 0.25rem 0; }
+
+
+    .metric-link {
+      display: block;
+      color: var(--text);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .metric-link:hover {
+      transform: translateY(-2px);
+      text-decoration: none;
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.10);
+    }
+
+    .live-note {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      padding: 1rem;
+      margin: 1rem 0 1.25rem;
+      color: var(--muted);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      background: var(--tag);
+      color: var(--accent-dark);
+      border: 1px solid #b2f5ea;
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      font-weight: 650;
+      font-size: 0.88rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .project h3, .publication h3 { margin-top: 0; }
+    .project .role { color: var(--accent-dark); font-weight: 700; }
+    .muted { color: var(--muted); }
+
+    .publication-list {
+      counter-reset: pubs;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .publication {
+      counter-increment: pubs;
+      position: relative;
+      padding-left: 3.25rem;
+    }
+
+    .publication::before {
+      content: counter(pubs);
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      width: 1.55rem;
+      height: 1.55rem;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 0.8rem;
+    }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      padding: 1rem;
+      background: #fff;
+      margin-top: 1rem;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: #102a43;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 2rem 1rem 3rem;
+      font-size: 0.95rem;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
     .button {
       display: inline-block;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      padding: 0.46rem 0.72rem;
-      font-weight: 700;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      font-size: 0.9rem;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 1px solid transparent;
     }
-    .button:hover, .button.secondary:hover { background: var(--accent-soft); text-decoration: none; }
-    .button.secondary { background: #fff; color: var(--accent); border-color: var(--line); }
+
+    .button.secondary {
+      background: transparent;
+      color: #fff;
+      border-color: rgba(255,255,255,0.6);
+    }
+
+    .button:hover {
+      background: var(--accent-dark);
+      text-decoration: none;
+    }
+
+    .button.secondary:hover {
+      background: rgba(255,255,255,0.14);
+    }
 
     @media (max-width: 860px) {
       .header-inner, .two-col { grid-template-columns: 1fr; }
       .grid { grid-template-columns: 1fr; }
+      .site-header { padding-top: 3rem; }
       nav { position: static; }
-      body { font-size: 16px; }
     }
 
     @media print {
       nav, .button-row { display: none; }
       body { background: #fff; }
-      section { break-inside: avoid; }
+      section { box-shadow: none; break-inside: avoid; }
       a { color: #000; text-decoration: none; }
     }
   </style>
@@ -509,6 +633,7 @@
           <ul>
             <li>Member of the Necessary Condition Analysis Development Team and Coordinator Team; ambassador for Engineering applications.</li>
             <li>Co-leader of PALM SIG, IFIP WG5.7.</li>
+            <li>Editorial Board, Journal of Quality in Maintenance Engineering.</li>
           </ul>
         </div>
         <div class="item">
@@ -524,7 +649,7 @@
       </div>
       <h3>Review commitments</h3>
       <p>I have approximately 100 verified reviews for top journals. My verified peer-review record is maintained on my <a href="https://www.webofscience.com/wos/author/record/N-7541-2015" target="_blank" rel="noopener">Web of Science author profile</a>.</p>
-      <p>Core review outlets include <em>Journal of Operations Management</em>, <em>International Journal of Operations &amp; Production Management</em>, <em>International Journal of Production Economics</em>, and <em>International Journal of Production Research</em>.</p>
+      <p>Review assignments include but are not limited to: <em>International Journal of Production Economics</em>, <em>International Journal of Operations and Production Management</em>, <em>Journal of Manufacturing Systems</em>, <em>Journal of Operations Management</em>, <em>Journal of Manufacturing Technology Management</em>, <em>International Journal of Production Research</em>, <em>Production Planning and Control</em>, <em>International Journal of Productivity and Performance Management</em>, <em>Computers in Industry</em>, and <em>Journal of Purchasing and Supply Management</em>.</p>
     </section>
 
     <section id="awards">
