@@ -208,6 +208,28 @@
 
     li { margin: 0.25rem 0; }
 
+
+    .metric-link {
+      display: block;
+      color: var(--text);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .metric-link:hover {
+      transform: translateY(-2px);
+      text-decoration: none;
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.10);
+    }
+
+    .live-note {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      padding: 1rem;
+      margin: 1rem 0 1.25rem;
+      color: var(--muted);
+    }
+
     .tags {
       display: flex;
       flex-wrap: wrap;
@@ -340,8 +362,9 @@
         <p class="subtitle">Assistant Professor at Chalmers University of Technology working to realize sustainable manufacturing through high-performance maintenance operations in digitalized environments.</p>
         <div class="button-row">
           <a class="button" href="mailto:jon.bokrantz@chalmers.se">Contact me</a>
-          <a class="button secondary" href="https://scholar.google.se/citations?user=gCY8uHgAAAAJ&hl=sv">Google Scholar</a>
-          <a class="button secondary" href="https://orcid.org/0000-0003-4930-7786">ORCID</a>
+          <a class="button secondary" href="https://scholar.google.se/citations?user=gCY8uHgAAAAJ&hl=sv" target="_blank" rel="noopener">Google Scholar</a>
+          <a class="button secondary" href="https://orcid.org/0000-0003-4930-7786" target="_blank" rel="noopener">ORCID</a>
+          <a class="button secondary" href="https://www.webofscience.com/wos/author/record/N-7541-2015" target="_blank" rel="noopener">Web of Science</a>
         </div>
       </div>
       <aside class="contact-card" aria-label="Contact information">
@@ -363,7 +386,6 @@
       <a href="#teaching">Teaching</a>
       <a href="#supervision">Supervision</a>
       <a href="#service">Service</a>
-      <a href="#references">References</a>
     </div>
   </nav>
 
@@ -372,10 +394,10 @@
       <h2>Profile</h2>
       <p class="lead">My scholarly goal is to realize sustainable manufacturing by enabling high-performance maintenance operations in digitalized environments. My vision is to renew the maintenance field through ground-breaking research in close cooperation with industry.</p>
       <p>I combine research excellence with industrial impact. My work spans empirical research methodology, practical engineering problem-solving, and social-science-informed analysis of industrial organizations. I have experience in producing disruptive research results, leading innovative research projects, and delivering knowledge, tools, and methods that inform theory, practice, and policy.</p>
-      <div class="grid" aria-label="Selected academic metrics">
-        <div class="metric"><strong>2,245</strong><span>Google Scholar citations, January 2026</span></div>
-        <div class="metric"><strong>22</strong><span>Google Scholar h-index, January 2026</span></div>
-        <div class="metric"><strong>96+</strong><span>Verified peer reviews across 15+ outlets</span></div>
+      <div class="grid" aria-label="Selected academic profile links">
+        <a class="metric metric-link" href="https://scholar.google.se/citations?user=gCY8uHgAAAAJ&amp;hl=sv" target="_blank" rel="noopener"><strong>Google Scholar</strong><span>Live citation counts, h-index, and publication updates</span></a>
+        <a class="metric metric-link" href="https://orcid.org/0000-0003-4930-7786" target="_blank" rel="noopener"><strong>ORCID</strong><span>Persistent researcher identifier and publication record</span></a>
+        <a class="metric metric-link" href="https://www.webofscience.com/wos/author/record/N-7541-2015" target="_blank" rel="noopener"><strong>Web of Science</strong><span>Live verified peer-review and author profile</span></a>
       </div>
       <div class="tags">
         <span class="tag">Smart Maintenance</span>
@@ -498,24 +520,25 @@
     <section id="publications">
       <h2>Publications and theses</h2>
       <p class="lead">My research has been published in top-tier journals within strategy and management, decision sciences, industrial engineering, and computer science, often in collaboration with international academic and industrial partners.</p>
+      <p class="live-note">For the automatically updated publication list, citation counts, and h-index, see my <a href="https://scholar.google.se/citations?user=gCY8uHgAAAAJ&amp;hl=sv" target="_blank" rel="noopener">Google Scholar profile</a>. The selection below mixes recent publications with highly cited work from my publication record.</p>
+      <h3>Selected publications</h3>
+      <div class="publication-list">
+        <article class="publication"><strong>Recent:</strong> Bokrantz, J., Subramaniyan, M., &amp; Skoogh, A. (2024). Realizing the promises of artificial intelligence in manufacturing by enhancing CRISP-DM. <em>Production Planning and Control.</em></article>
+        <article class="publication"><strong>Recent:</strong> Bokrantz, J., Shurrab, H., Johansson, B., &amp; Skoogh, A. (2024/2025). Unravelling supply chain complexity in maintenance operations of battery production. <em>Production Planning &amp; Control.</em></article>
+        <article class="publication"><strong>Recent:</strong> Bokrantz, J., &amp; Skoogh, A. (2023). Adoption patterns and performance implications of Smart Maintenance. <em>International Journal of Production Economics.</em></article>
+        <article class="publication"><strong>Recent:</strong> Bokrantz, J., &amp; Dul, J. (2023). Building and testing necessity theories in supply chain management. <em>Journal of Supply Chain Management.</em></article>
+        <article class="publication"><strong>Highly cited:</strong> Bokrantz, J., Skoogh, A., Berlin, C., Wuest, T., &amp; Stahre, J. (2020). Smart Maintenance: an empirically grounded conceptualization. <em>International Journal of Production Economics.</em></article>
+        <article class="publication"><strong>Highly cited:</strong> Bokrantz, J., Skoogh, A., Berlin, C., Wuest, T., &amp; Stahre, J. (2020). Smart Maintenance: a research agenda for industrial maintenance management. <em>International Journal of Production Economics.</em></article>
+        <article class="publication"><strong>Highly cited:</strong> Bokrantz, J., Skoogh, A., Berlin, C., &amp; Stahre, J. (2020). Smart Maintenance: instrument development, content validation and an empirical pilot. <em>International Journal of Operations &amp; Production Management.</em></article>
+        <article class="publication"><strong>Highly cited:</strong> Subramaniyan, M., Skoogh, A., Bokrantz, J., Sheikh, M. A., Thürer, M., &amp; Chang, Q. (2021). Artificial intelligence for throughput bottleneck analysis: State-of-the-art and future directions. <em>Journal of Manufacturing Systems.</em></article>
+        <article class="publication"><strong>Highly cited:</strong> Bokrantz, J., Skoogh, A., Berlin, C., &amp; Stahre, J. (2017). Maintenance in digitalised manufacturing: Delphi-based scenarios for 2030. <em>International Journal of Production Economics.</em></article>
+        <article class="publication"><strong>Highly cited:</strong> Ito, A., Hagström, M., Bokrantz, J., Skoogh, A., Nawcki, M., Gandhi, K., &amp; Bärring, M. (2022). Improved root cause analysis supporting resilient production systems. <em>Journal of Manufacturing Systems.</em></article>
+      </div>
       <h3>Scientific theses</h3>
       <ul>
         <li><strong>Bokrantz, J. 2019.</strong> <em>Smart Maintenance: maintenance in digitalised manufacturing.</em> Doctoral thesis, Chalmers University of Technology.</li>
         <li><strong>Bokrantz, J. 2017.</strong> <em>On the Transformation of Maintenance Organizations in Digitalized Manufacturing.</em> Licentiate thesis, Chalmers University of Technology.</li>
       </ul>
-      <h3>Selected publications</h3>
-      <div class="publication-list">
-        <article class="publication">Bokrantz, J., Subramaniyan, M., &amp; Skoogh, A. (2024). Realizing the promises of artificial intelligence in manufacturing by enhancing CRISP-DM. <em>Production Planning and Control.</em></article>
-        <article class="publication">Bokrantz, J., Shurrab, H., Johansson, B., &amp; Skoogh, A. (2024). Unravelling supply chain complexity in maintenance operations of battery production. <em>Production Planning &amp; Control.</em></article>
-        <article class="publication">Bokrantz, J., &amp; Skoogh, A. (2023). Adoption patterns and performance implications of Smart Maintenance. <em>International Journal of Production Economics.</em></article>
-        <article class="publication">Bokrantz, J., &amp; Dul, J. (2023). Building and testing necessity theories in supply chain management. <em>Journal of Supply Chain Management.</em></article>
-        <article class="publication">Ito, A., Hagström, M., Bokrantz, J., Skoogh, A., Nawcki, M., Gandhi, K., &amp; Bärring, M. (2022). Improved root cause analysis supporting resilient production systems. <em>Journal of Manufacturing Systems.</em></article>
-        <article class="publication">Subramaniyan, M., Skoogh, A., Bokrantz, J., Sheikh, M. A., Thürer, M., &amp; Chang, Q. (2021). Artificial intelligence for throughput bottleneck analysis: State-of-the-art and future directions. <em>Journal of Manufacturing Systems.</em></article>
-        <article class="publication">Bokrantz, J., Skoogh, A., Berlin, C., Wuest, T., &amp; Stahre, J. (2020). Smart Maintenance: an empirically grounded conceptualization. <em>International Journal of Production Economics.</em></article>
-        <article class="publication">Bokrantz, J., Skoogh, A., Berlin, C., Wuest, T., &amp; Stahre, J. (2020). Smart Maintenance: a research agenda for industrial maintenance management. <em>International Journal of Production Economics.</em></article>
-        <article class="publication">Bokrantz, J., Skoogh, A., Berlin, C., &amp; Stahre, J. (2020). Smart Maintenance: instrument development, content validation and an empirical pilot. <em>International Journal of Operations &amp; Production Management.</em></article>
-        <article class="publication">Bokrantz, J., Skoogh, A., Berlin, C., &amp; Stahre, J. (2017). Maintenance in digitalised manufacturing: Delphi-based scenarios for 2030. <em>International Journal of Production Economics.</em></article>
-      </div>
     </section>
 
     <section id="impact">
@@ -536,7 +559,7 @@
         <div class="item">
           <h3>Industrial conferences and events</h3>
           <ul>
-            <li>Swedish Maintenance Fair, main stage, 2016, 2018, 2020, 2024.</li>
+            <li>Swedish Maintenance Fair, main stage, 2016, 2018, 2020, 2024, 2026.</li>
             <li>From battery cell to vehicle and beyond, Chalmers, 2023.</li>
             <li>Underhållsstrategi, 2023.</li>
             <li>Sustainability Circle webinars and meetings, 2016–2023.</li>
@@ -592,34 +615,12 @@
 
     <section id="supervision">
       <h2>Supervision and examination</h2>
-      <p class="lead">I have co-supervised one completed PhD thesis and currently co-supervise six PhD students. I have also supervised or examined 17 MSc theses involving 34 students and 3 BSc theses involving 16 students.</p>
-      <div class="two-col">
-        <div class="item">
-          <h3>PhD supervision</h3>
-          <ul>
-            <li>Anita Clara Notarianni, expected 2030.</li>
-            <li>Elisa Gonzales, expected 2030.</li>
-            <li>Oscar Larsson, industrial PhD, Northvolt, expected 2029.</li>
-            <li>Mohan Rajeshekarappa, expected 2027.</li>
-            <li>Anderson Leal, industrial PhD, AB Volvo, expected 2027.</li>
-            <li>Siyuan Chen, expected 2027.</li>
-            <li>Adriana Ito, completed 2023.</li>
-          </ul>
-        </div>
-        <div class="item">
-          <h3>Selected MSc and BSc thesis topics</h3>
-          <ul>
-            <li>Maintenance and circular economy.</li>
-            <li>Strategic procurement of battery-production equipment.</li>
-            <li>Project and asset management integration.</li>
-            <li>Smart Maintenance in Swedish battery production.</li>
-            <li>Predictive maintenance and data-driven decision support.</li>
-            <li>Digital twins, FMECA systems, and production-layout improvement.</li>
-          </ul>
-        </div>
+      <p class="lead">I supervise doctoral, master’s, and bachelor-level research in industrial maintenance, production systems, battery production, Smart Maintenance, circularity, and data-driven decision support.</p>
+      <div class="grid" aria-label="Supervision summary">
+        <div class="metric"><strong>7</strong><span>PhD students co-supervised, including one completed PhD thesis</span></div>
+        <div class="metric"><strong>17</strong><span>MSc theses supervised or examined, involving 34 students</span></div>
+        <div class="metric"><strong>3</strong><span>BSc theses supervised or examined, involving 16 students</span></div>
       </div>
-      <h3>Grading committee</h3>
-      <p>Member of the grading committee for San Giliyana, Licentiate of Engineering, Mälardalen University, 2023: “Smart Maintenance Technologies in the Manufacturing Industry: Implementation, Challenges, Enablers, and Benefits”.</p>
     </section>
 
     <section id="service">
@@ -627,12 +628,13 @@
       <div class="two-col">
         <div class="item">
           <h3>International networks</h3>
-          <p>Member of the Necessary Condition Analysis Development Team and Coordinator Team, and ambassador for Engineering applications.</p>
+          <p>Member of the Necessary Condition Analysis Development Team and Coordinator Team, ambassador for Engineering applications, and co-leader of the PALM SIG within IFIP WG5.7.</p>
         </div>
         <div class="item">
           <h3>Research events and conferences</h3>
           <ul>
             <li>APMS Special Session on maintenance and asset lifecycle management, 2025.</li>
+            <li>Special Session on PALM SIG, APMS 2026 Conference.</li>
             <li>IFAC International Workshop on Advanced Maintenance Engineering, Services and Technology, 2024.</li>
             <li>IFAC World Congress track on Human in the Loop of AI in Smart Maintenance and Manufacturing Systems, 2023.</li>
             <li>NCA Annual Paper Development Workshop, 2023.</li>
@@ -640,7 +642,7 @@
         </div>
       </div>
       <h3>Review commitments</h3>
-      <p>I have completed 96 verified peer reviews across more than 15 outlets, including <em>International Journal of Production Economics</em>, <em>International Journal of Operations and Production Management</em>, <em>Journal of Manufacturing Systems</em>, <em>Journal of Operations Management</em>, <em>International Journal of Production Research</em>, <em>Production Planning and Control</em>, <em>Computers in Industry</em>, and <em>Journal of Purchasing and Supply Management</em>.</p>
+      <p>My verified peer-review record is maintained on my <a href="https://www.webofscience.com/wos/author/record/N-7541-2015" target="_blank" rel="noopener">Web of Science author profile</a>, which provides the most up-to-date summary of review assignments and author information.</p>
     </section>
 
     <section id="awards">
@@ -651,21 +653,6 @@
       </ul>
     </section>
 
-    <section id="references">
-      <h2>References</h2>
-      <div class="two-col">
-        <div class="item">
-          <h3>Jan Dul</h3>
-          <p>Professor of Technology and Human Factors, Department of Technology and Operations Management, Rotterdam School of Management, Netherlands.</p>
-          <p><a href="mailto:jdul@rsm.nl">jdul@rsm.nl</a> · <a href="tel:+31104081932">+31 10 408 1932</a></p>
-        </div>
-        <div class="item">
-          <h3>Henric Widén</h3>
-          <p>CEO, Sustainability Circle.</p>
-          <p><a href="mailto:henric.widen@sustainabilitycircle.se">henric.widen@sustainabilitycircle.se</a> · <a href="tel:+46705371316">+46 70 537 13 16</a></p>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">
