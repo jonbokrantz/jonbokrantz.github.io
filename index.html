@@ -76,22 +76,56 @@
       opacity: 0.95;
     }
 
-    .contact-card {
+    .profile-photo-card {
+      justify-self: end;
+      width: min(310px, 100%);
+      aspect-ratio: 4 / 5;
+      border-radius: 1.4rem;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.35);
+      box-shadow: 0 24px 48px rgba(15, 23, 42, 0.28);
       background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.25);
-      border-radius: 1.25rem;
-      padding: 1.25rem;
-      backdrop-filter: blur(10px);
+      margin: 0;
     }
 
-    .contact-card h2 {
-      color: #fff;
-      margin-top: 0;
-      font-size: 1rem;
+    .profile-photo-card img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
     }
 
-    .contact-card p { margin: 0.4rem 0; }
-    .contact-card a { color: #fff; }
+    .contact-strip {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .contact-strip-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .contact-item {
+      border-left: 3px solid var(--accent);
+      padding-left: 0.85rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .contact-item strong {
+      display: block;
+      color: var(--text);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.15rem;
+    }
 
     nav {
       position: sticky;
@@ -340,7 +374,8 @@
 
     @media (max-width: 860px) {
       .header-inner, .two-col { grid-template-columns: 1fr; }
-      .grid { grid-template-columns: 1fr; }
+      .grid, .contact-strip-inner { grid-template-columns: 1fr; }
+      .profile-photo-card { justify-self: start; width: min(260px, 100%); }
       .site-header { padding-top: 3rem; }
       nav { position: static; }
     }
@@ -368,14 +403,28 @@
           <a class="button secondary" href="https://www.chalmers.se/personer/bokrantz/" target="_blank" rel="noopener">Chalmers</a>
         </div>
       </div>
-      <aside class="contact-card" aria-label="Contact information">
-        <h2>Contact</h2>
-        <p><strong>Email:</strong> <a href="mailto:jon.bokrantz@chalmers.se">jon.bokrantz@chalmers.se</a></p>
-        <p><strong>Phone:</strong> <a href="tel:+46729820079">+46 72 982 00 79</a></p>
-        <p><strong>Work address:</strong><br />Chalmers University of Technology<br />Department of Mechanical Engineering<br />SE-412 96 Gothenburg, Sweden</p>
-      </aside>
+      <figure class="profile-photo-card" aria-label="Portrait of Jon Bokrantz">
+        <img src="jon-bokrantz-profile.jpg" alt="Portrait of Jon Bokrantz" />
+      </figure>
     </div>
   </header>
+
+  <div class="contact-strip" aria-label="Contact information">
+    <div class="contact-strip-inner">
+      <div class="contact-item">
+        <strong>Email</strong>
+        <a href="mailto:jon.bokrantz@chalmers.se">jon.bokrantz@chalmers.se</a>
+      </div>
+      <div class="contact-item">
+        <strong>Phone</strong>
+        <a href="tel:+46729820079">+46 72 982 00 79</a>
+      </div>
+      <div class="contact-item">
+        <strong>Work address</strong>
+        Chalmers University of Technology · Department of Mechanical Engineering · SE-412 96 Gothenburg, Sweden
+      </div>
+    </div>
+  </div>
 
   <nav aria-label="Main navigation">
     <div class="nav-inner">
