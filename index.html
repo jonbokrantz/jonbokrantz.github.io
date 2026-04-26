@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Academic CV website for Jon Bokrantz, Assistant Professor at Chalmers University of Technology." />
+  <meta name="author" content="Jon Bokrantz" />
+  <title>Jon Bokrantz | Academic CV</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --card: #ffffff;
+      --text: #1f2933;
+      --muted: #5f6b7a;
+      --accent: #0f766e;
+      --accent-dark: #115e59;
+      --line: #e2e8f0;
+      --tag: #e6fffb;
+      --shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+      --max-width: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    a {
+      color: var(--accent-dark);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .site-header {
+      background: linear-gradient(135deg, #102a43 0%, #0f766e 100%);
+      color: #fff;
+      padding: 4rem 1.5rem 3rem;
+    }
+
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 2rem;
+      align-items: end;
+    }
+
+    .eyebrow {
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      font-weight: 700;
+      opacity: 0.85;
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
+      line-height: 1;
+      margin: 0 0 1rem;
+    }
+
+    .subtitle {
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      max-width: 760px;
+      margin: 0;
+      opacity: 0.95;
+    }
+
+    .contact-card {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 1.25rem;
+      padding: 1.25rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .contact-card h2 {
+      color: #fff;
+      margin-top: 0;
+      font-size: 1rem;
+    }
+
+    .contact-card p { margin: 0.4rem 0; }
+    .contact-card a { color: #fff; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,0.95);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-inner a {
+      font-size: 0.92rem;
+      font-weight: 650;
+      color: var(--text);
+      padding: 0.3rem 0.5rem;
+      border-radius: 999px;
+    }
+
+    .nav-inner a:hover {
+      background: var(--tag);
+      color: var(--accent-dark);
+      text-decoration: none;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 1.4rem;
+      padding: clamp(1.25rem, 3vw, 2rem);
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      line-height: 1.2;
+      margin: 0 0 1rem;
+      color: #102a43;
+    }
+
+    h3 {
+      margin: 1.2rem 0 0.4rem;
+      color: #243b53;
+      font-size: 1.12rem;
+    }
+
+    .lead {
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 880px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .metric, .item, .project, .publication {
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      padding: 1rem;
+      background: #fff;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.8rem;
+      color: var(--accent-dark);
+      line-height: 1.1;
+    }
+
+    .metric span { color: var(--muted); }
+
+    .timeline {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .timeline-item {
+      padding-left: 1rem;
+      border-left: 4px solid var(--accent);
+    }
+
+    .timeline-item .date {
+      color: var(--accent-dark);
+      font-weight: 750;
+      text-transform: uppercase;
+      font-size: 0.86rem;
+      letter-spacing: 0.04em;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin: 0.4rem 0 0;
+    }
+
+    li { margin: 0.25rem 0; }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      background: var(--tag);
+      color: var(--accent-dark);
+      border: 1px solid #b2f5ea;
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      font-weight: 650;
+      font-size: 0.88rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .project h3, .publication h3 { margin-top: 0; }
+    .project .role { color: var(--accent-dark); font-weight: 700; }
+    .muted { color: var(--muted); }
+
+    .publication-list {
+      counter-reset: pubs;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .publication {
+      counter-increment: pubs;
+      position: relative;
+      padding-left: 3.25rem;
+    }
+
+    .publication::before {
+      content: counter(pubs);
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      width: 1.55rem;
+      height: 1.55rem;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 0.8rem;
+    }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      padding: 1rem;
+      background: #fff;
+      margin-top: 1rem;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: #102a43;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 2rem 1rem 3rem;
+      font-size: 0.95rem;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 1px solid transparent;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: #fff;
+      border-color: rgba(255,255,255,0.6);
+    }
+
+    .button:hover {
+      background: var(--accent-dark);
+      text-decoration: none;
+    }
+
+    .button.secondary:hover {
+      background: rgba(255,255,255,0.14);
+    }
+
+    @media (max-width: 860px) {
+      .header-inner, .two-col { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .site-header { padding-top: 3rem; }
+      nav { position: static; }
+    }
+
+    @media print {
+      nav, .button-row { display: none; }
+      body { background: #fff; }
+      section { box-shadow: none; break-inside: avoid; }
+      a { color: #000; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div>
+        <div class="eyebrow">Academic CV</div>
+        <h1>Jon Bokrantz</h1>
+        <p class="subtitle">Assistant Professor at Chalmers University of Technology working to realize sustainable manufacturing through high-performance maintenance operations in digitalized environments.</p>
+        <div class="button-row">
+          <a class="button" href="mailto:jon.bokrantz@chalmers.se">Contact me</a>
+          <a class="button secondary" href="https://scholar.google.se/citations?user=gCY8uHgAAAAJ&hl=sv">Google Scholar</a>
+          <a class="button secondary" href="https://orcid.org/0000-0003-4930-7786">ORCID</a>
+        </div>
+      </div>
+      <aside class="contact-card" aria-label="Contact information">
+        <h2>Contact</h2>
+        <p><strong>Email:</strong> <a href="mailto:jon.bokrantz@chalmers.se">jon.bokrantz@chalmers.se</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+46729820079">+46 72 982 00 79</a></p>
+        <p><strong>Work address:</strong><br />Chalmers University of Technology<br />Department of Mechanical Engineering<br />SE-412 96 Gothenburg, Sweden</p>
+      </aside>
+    </div>
+  </header>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#profile">Profile</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#impact">Impact</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#supervision">Supervision</a>
+      <a href="#service">Service</a>
+      <a href="#references">References</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="profile">
+      <h2>Profile</h2>
+      <p class="lead">My scholarly goal is to realize sustainable manufacturing by enabling high-performance maintenance operations in digitalized environments. My vision is to renew the maintenance field through ground-breaking research in close cooperation with industry.</p>
+      <p>I combine research excellence with industrial impact. My work spans empirical research methodology, practical engineering problem-solving, and social-science-informed analysis of industrial organizations. I have experience in producing disruptive research results, leading innovative research projects, and delivering knowledge, tools, and methods that inform theory, practice, and policy.</p>
+      <div class="grid" aria-label="Selected academic metrics">
+        <div class="metric"><strong>2,245</strong><span>Google Scholar citations, January 2026</span></div>
+        <div class="metric"><strong>22</strong><span>Google Scholar h-index, January 2026</span></div>
+        <div class="metric"><strong>96+</strong><span>Verified peer reviews across 15+ outlets</span></div>
+      </div>
+      <div class="tags">
+        <span class="tag">Smart Maintenance</span>
+        <span class="tag">Battery production</span>
+        <span class="tag">Industrial AI</span>
+        <span class="tag">Sustainable manufacturing</span>
+        <span class="tag">Maintenance engineering</span>
+        <span class="tag">Empirical methodology</span>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Academic experience and education</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="date">2024–Present</div>
+          <h3>Assistant Professor, Chalmers University of Technology</h3>
+          <ul>
+            <li>Tenure track within Chalmers Production Area of Advance.</li>
+            <li>Independent line of research on maintenance of battery production.</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="date">2024</div>
+          <h3>Research Specialist, Chalmers University of Technology</h3>
+          <ul>
+            <li>Research group: Maintenance Engineering, Chalmers.</li>
+            <li>Supervision of PhD students.</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="date">2020–2023</div>
+          <h3>Post-doctoral Researcher, Chalmers University of Technology</h3>
+          <ul>
+            <li>Research and teaching on maintenance in digitalized manufacturing and industrial AI.</li>
+            <li>External project funding and independent research-line development.</li>
+            <li>Visiting fellow at Rotterdam School of Management, Erasmus University.</li>
+            <li>NCA Ambassador of Engineering and member of the global NCA Development Team.</li>
+            <li>Diploma in Teaching and Learning in Higher Education, 15.5 ECTS credits.</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="date">2014–2019</div>
+          <h3>PhD Student, Chalmers University of Technology</h3>
+          <ul>
+            <li>PhD in Product and Production Development, 2019.</li>
+            <li>Research focused on maintenance in digitalized manufacturing.</li>
+            <li>PhD thesis awarded “Highly Commended” in the 2020 Emerald and EFMD Outstanding Doctoral Research Awards.</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="date">2012–2014</div>
+          <h3>Master of Science in Engineering, Production Engineering, Chalmers</h3>
+          <p>Master thesis on production disturbance handling in the Swedish manufacturing industry.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="date">2008–2011</div>
+          <h3>Bachelor of Science in Engineering, Mechanical Engineering, Chalmers</h3>
+          <p>Bachelor thesis on Lean Production in the Swedish manufacturing industry.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Research grants and projects</h2>
+      <p class="lead">I have led and contributed to research projects in roles including project leader, grant holder, grant proposal author, operational manager, main investigator, researcher, educational developer, and PhD supervisor.</p>
+      <div class="two-col">
+        <article class="project">
+          <h3>Maintenance of Battery Production at Industrial Scale (MATTER@SCALE), 2023–2026</h3>
+          <p class="role">Project leader, grant holder</p>
+          <p>Partners: Chalmers, KTH, Volvo AB, Volvo Cars, Scania, Northvolt. Develops and scales key maintenance enablers for circularity in the Swedish battery industry.</p>
+          <p class="muted">Total budget: 10.5 MSEK; Chalmers funding: 3.5 MSEK.</p>
+        </article>
+        <article class="project">
+          <h3>Maintenance of Battery Production (MATTER), 2022–2023</h3>
+          <p class="role">Project leader, grant holder</p>
+          <p>Established the foundation for research on maintenance of battery production and sustainable battery industry development in Sweden.</p>
+          <p class="muted">Total budget: 1.1 MSEK; Chalmers funding: 0.4 MSEK.</p>
+        </article>
+        <article class="project">
+          <h3>Disturbance Data Fusion (DFusion), 2021–2024</h3>
+          <p class="role">Research design and PhD supervision</p>
+          <p>Explored digital tools for fusion and analysis of production-system data to improve disturbance management, efficiency, and waste reduction.</p>
+          <p class="muted">Total budget: 12 MSEK; Chalmers funding: 2.9 MSEK.</p>
+        </article>
+        <article class="project">
+          <h3>Smart Maintenance in Energy Production (STEP2), 2020–2022</h3>
+          <p class="role">Lead operational researcher and project administration</p>
+          <p>Implemented and evaluated Smart Maintenance in energy production, including organizational assessment and commercial software implementation.</p>
+          <p class="muted">Total budget and Chalmers funding: 3.45 MSEK.</p>
+        </article>
+        <article class="project">
+          <h3>Sustainability, Smart Maintenance and Factory Design Testbed (SUMMIT), 2017–2021</h3>
+          <p class="role">Researcher and educational developer</p>
+          <p>Developed demonstrator testbeds for preventive maintenance, factory design, reduced emissions, better work environments, and inclusive factory design.</p>
+          <p class="muted">Total budget: 21 MSEK; Chalmers funding: 4.3 MSEK.</p>
+        </article>
+        <article class="project">
+          <h3>Smart Maintenance Assessment (SMASh), 2017–2019</h3>
+          <p class="role">Project design, consortium building, WP leader, lead researcher</p>
+          <p>Conceptualized Smart Maintenance, developed a measurement instrument, tested performance implications, and developed roadmaps and digital services.</p>
+          <p class="muted">Total budget: 5.6 MSEK; Chalmers funding: 2.3 MSEK.</p>
+        </article>
+      </div>
+      <details>
+        <summary>Additional projects</summary>
+        <ul>
+          <li>Pre-MAXBATT, 2023 — researcher and educational developer.</li>
+          <li>Engineer 4.0, 2020–2024 — educational module developer and education management.</li>
+          <li>Data-driven disturbance handling (D3H), 2018–2021 — application writing and PhD supervision.</li>
+          <li>Necessary Condition Analysis in Smart Maintenance, 2019 — lead researcher and project administration.</li>
+          <li>Life Cycle Centered Organizations (LCCO), 2019–2020 — lead researcher and PhD supervision.</li>
+          <li>Data Analytics in Maintenance Planning (DAIMP), 2016–2019 — application writing and research support.</li>
+          <li>Data Analytics in Maintenance Planning (DAMP-VMMS), 2015 — WP leader and researcher.</li>
+          <li>StreaMod, 2013–2016 — researcher.</li>
+        </ul>
+      </details>
+    </section>
+
+    <section id="publications">
+      <h2>Publications and theses</h2>
+      <p class="lead">My research has been published in top-tier journals within strategy and management, decision sciences, industrial engineering, and computer science, often in collaboration with international academic and industrial partners.</p>
+      <h3>Scientific theses</h3>
+      <ul>
+        <li><strong>Bokrantz, J. 2019.</strong> <em>Smart Maintenance: maintenance in digitalised manufacturing.</em> Doctoral thesis, Chalmers University of Technology.</li>
+        <li><strong>Bokrantz, J. 2017.</strong> <em>On the Transformation of Maintenance Organizations in Digitalized Manufacturing.</em> Licentiate thesis, Chalmers University of Technology.</li>
+      </ul>
+      <h3>Selected publications</h3>
+      <div class="publication-list">
+        <article class="publication">Bokrantz, J., Subramaniyan, M., &amp; Skoogh, A. (2024). Realizing the promises of artificial intelligence in manufacturing by enhancing CRISP-DM. <em>Production Planning and Control.</em></article>
+        <article class="publication">Bokrantz, J., Shurrab, H., Johansson, B., &amp; Skoogh, A. (2024). Unravelling supply chain complexity in maintenance operations of battery production. <em>Production Planning &amp; Control.</em></article>
+        <article class="publication">Bokrantz, J., &amp; Skoogh, A. (2023). Adoption patterns and performance implications of Smart Maintenance. <em>International Journal of Production Economics.</em></article>
+        <article class="publication">Bokrantz, J., &amp; Dul, J. (2023). Building and testing necessity theories in supply chain management. <em>Journal of Supply Chain Management.</em></article>
+        <article class="publication">Ito, A., Hagström, M., Bokrantz, J., Skoogh, A., Nawcki, M., Gandhi, K., &amp; Bärring, M. (2022). Improved root cause analysis supporting resilient production systems. <em>Journal of Manufacturing Systems.</em></article>
+        <article class="publication">Subramaniyan, M., Skoogh, A., Bokrantz, J., Sheikh, M. A., Thürer, M., &amp; Chang, Q. (2021). Artificial intelligence for throughput bottleneck analysis: State-of-the-art and future directions. <em>Journal of Manufacturing Systems.</em></article>
+        <article class="publication">Bokrantz, J., Skoogh, A., Berlin, C., Wuest, T., &amp; Stahre, J. (2020). Smart Maintenance: an empirically grounded conceptualization. <em>International Journal of Production Economics.</em></article>
+        <article class="publication">Bokrantz, J., Skoogh, A., Berlin, C., Wuest, T., &amp; Stahre, J. (2020). Smart Maintenance: a research agenda for industrial maintenance management. <em>International Journal of Production Economics.</em></article>
+        <article class="publication">Bokrantz, J., Skoogh, A., Berlin, C., &amp; Stahre, J. (2020). Smart Maintenance: instrument development, content validation and an empirical pilot. <em>International Journal of Operations &amp; Production Management.</em></article>
+        <article class="publication">Bokrantz, J., Skoogh, A., Berlin, C., &amp; Stahre, J. (2017). Maintenance in digitalised manufacturing: Delphi-based scenarios for 2030. <em>International Journal of Production Economics.</em></article>
+      </div>
+    </section>
+
+    <section id="impact">
+      <h2>Societal utilization and popular science</h2>
+      <p class="lead">My research has been used by manufacturing firms to support long-term strategic development of maintenance organizations and has been covered in popular science articles and interviews.</p>
+      <div class="two-col">
+        <div class="item">
+          <h3>Invited industrial presentations</h3>
+          <ul>
+            <li>Easy Laser, 2023.</li>
+            <li>Capgemini, Insights and Data seminar, 2022.</li>
+            <li>Volvo Group Trucks, Global Maintenance Management Network seminar, 2021.</li>
+            <li>Billerud Korsnäs, Top Management seminar, 2019.</li>
+            <li>Volvo Cars, Smart Maintenance seminar, 2018.</li>
+            <li>Stora Enso, Tetra Pak, Triple Steelix, 2017.</li>
+          </ul>
+        </div>
+        <div class="item">
+          <h3>Industrial conferences and events</h3>
+          <ul>
+            <li>Swedish Maintenance Fair, main stage, 2016, 2018, 2020, 2024.</li>
+            <li>From battery cell to vehicle and beyond, Chalmers, 2023.</li>
+            <li>Underhållsstrategi, 2023.</li>
+            <li>Sustainability Circle webinars and meetings, 2016–2023.</li>
+            <li>Norwegian Maintenance Society Industry 4.0 conference, Oslo, 2018.</li>
+          </ul>
+        </div>
+      </div>
+      <details>
+        <summary>News articles, interviews, and moderation</summary>
+        <ul>
+          <li>Nordiska projekt and Ny Teknik, 2024 — interviews about MATTER@SCALE.</li>
+          <li>Ny Teknik and Dagens industri, 2020 — interviews about SMASh.</li>
+          <li>Myndigheten för yrkeshögskola, 2020 — interview about digitalization and Swedish industry development.</li>
+          <li>Dagens industri and Nordiska projekt, 2018 — articles and interviews on maintenance costs, SMASh, and DAIMP.</li>
+          <li>Moderator for Chalmers AoA Production annual initiative seminar, 2024.</li>
+          <li>Moderator for Chalmers &amp; Lund University SME seminars on sustainable material and production technology, 2023.</li>
+        </ul>
+      </details>
+    </section>
+
+    <section id="teaching">
+      <h2>Pedagogical qualifications</h2>
+      <p class="lead">I have pedagogical experience from bachelor-, master-, PhD-, and professional-education courses, covering course design, administration, lecturing, labs, and project supervision.</p>
+      <div class="two-col">
+        <div class="item">
+          <h3>Course design and development</h3>
+          <ul>
+            <li>Data-driven product realization (TRA235), master’s level.</li>
+            <li>MOOC in Necessary Condition Analysis, launched on Coursera in 2022 with 1,300+ learners.</li>
+            <li>Smart Maintenance modules for Engineer 4.0 professional education.</li>
+            <li>Production and Product Service Systems (PPU231), master’s level.</li>
+            <li>Online learning modules for battery-production industry workers in Pre-MAXBATT.</li>
+          </ul>
+        </div>
+        <div class="item">
+          <h3>Lecturing and supervision</h3>
+          <ul>
+            <li>Data science in product realization (IMS065).</li>
+            <li>Research skills for engineering projects (PPU215).</li>
+            <li>Digitalized Production and Maintenance, Chalmers Professional Education.</li>
+            <li>Machine Learning in Manufacturing, Chalmers Professional Education.</li>
+            <li>Research Methodology in Product Realization, Produktion 2030, PhD level.</li>
+            <li>Automation of Production Systems (PPU235), bachelor’s level.</li>
+          </ul>
+        </div>
+      </div>
+      <h3>Pedagogy publications</h3>
+      <ul>
+        <li>Bokrantz, J., &amp; Skoogh, A. (2021). Perspectives on the Future of Maintenance Engineering Education. In <em>Advances in Production Management Systems</em>.</li>
+        <li>Turanoglu Bekar, E., Skoogh, A., &amp; Bokrantz, J. (2023). Involving students in engineering course design: a combined approach based on constructive alignment and multi-criteria decision-making. <em>European Journal of Engineering Education.</em></li>
+      </ul>
+    </section>
+
+    <section id="supervision">
+      <h2>Supervision and examination</h2>
+      <p class="lead">I have co-supervised one completed PhD thesis and currently co-supervise six PhD students. I have also supervised or examined 17 MSc theses involving 34 students and 3 BSc theses involving 16 students.</p>
+      <div class="two-col">
+        <div class="item">
+          <h3>PhD supervision</h3>
+          <ul>
+            <li>Anita Clara Notarianni, expected 2030.</li>
+            <li>Elisa Gonzales, expected 2030.</li>
+            <li>Oscar Larsson, industrial PhD, Northvolt, expected 2029.</li>
+            <li>Mohan Rajeshekarappa, expected 2027.</li>
+            <li>Anderson Leal, industrial PhD, AB Volvo, expected 2027.</li>
+            <li>Siyuan Chen, expected 2027.</li>
+            <li>Adriana Ito, completed 2023.</li>
+          </ul>
+        </div>
+        <div class="item">
+          <h3>Selected MSc and BSc thesis topics</h3>
+          <ul>
+            <li>Maintenance and circular economy.</li>
+            <li>Strategic procurement of battery-production equipment.</li>
+            <li>Project and asset management integration.</li>
+            <li>Smart Maintenance in Swedish battery production.</li>
+            <li>Predictive maintenance and data-driven decision support.</li>
+            <li>Digital twins, FMECA systems, and production-layout improvement.</li>
+          </ul>
+        </div>
+      </div>
+      <h3>Grading committee</h3>
+      <p>Member of the grading committee for San Giliyana, Licentiate of Engineering, Mälardalen University, 2023: “Smart Maintenance Technologies in the Manufacturing Industry: Implementation, Challenges, Enablers, and Benefits”.</p>
+    </section>
+
+    <section id="service">
+      <h2>International networks and academic service</h2>
+      <div class="two-col">
+        <div class="item">
+          <h3>International networks</h3>
+          <p>Member of the Necessary Condition Analysis Development Team and Coordinator Team, and ambassador for Engineering applications.</p>
+        </div>
+        <div class="item">
+          <h3>Research events and conferences</h3>
+          <ul>
+            <li>APMS Special Session on maintenance and asset lifecycle management, 2025.</li>
+            <li>IFAC International Workshop on Advanced Maintenance Engineering, Services and Technology, 2024.</li>
+            <li>IFAC World Congress track on Human in the Loop of AI in Smart Maintenance and Manufacturing Systems, 2023.</li>
+            <li>NCA Annual Paper Development Workshop, 2023.</li>
+          </ul>
+        </div>
+      </div>
+      <h3>Review commitments</h3>
+      <p>I have completed 96 verified peer reviews across more than 15 outlets, including <em>International Journal of Production Economics</em>, <em>International Journal of Operations and Production Management</em>, <em>Journal of Manufacturing Systems</em>, <em>Journal of Operations Management</em>, <em>International Journal of Production Research</em>, <em>Production Planning and Control</em>, <em>Computers in Industry</em>, and <em>Journal of Purchasing and Supply Management</em>.</p>
+    </section>
+
+    <section id="awards">
+      <h2>Awards</h2>
+      <ul>
+        <li>Best paper award, Swedish Production Symposium, 2022.</li>
+        <li>PhD thesis awarded “Highly Commended” in the 2020 Emerald and EFMD Outstanding Doctoral Research Awards.</li>
+      </ul>
+    </section>
+
+    <section id="references">
+      <h2>References</h2>
+      <div class="two-col">
+        <div class="item">
+          <h3>Jan Dul</h3>
+          <p>Professor of Technology and Human Factors, Department of Technology and Operations Management, Rotterdam School of Management, Netherlands.</p>
+          <p><a href="mailto:jdul@rsm.nl">jdul@rsm.nl</a> · <a href="tel:+31104081932">+31 10 408 1932</a></p>
+        </div>
+        <div class="item">
+          <h3>Henric Widén</h3>
+          <p>CEO, Sustainability Circle.</p>
+          <p><a href="mailto:henric.widen@sustainabilitycircle.se">henric.widen@sustainabilitycircle.se</a> · <a href="tel:+46705371316">+46 70 537 13 16</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Jon Bokrantz. Built as a single-file academic CV website for GitHub Pages.</p>
+  </footer>
+</body>
+</html>
